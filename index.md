@@ -1,4 +1,6 @@
-![](imgs/logo.png)
+<div style="text-align: center">
+<img src="imgs/logo.png"/>
+</div>
 
 <center><H1>天天读书</H1></center>
 
