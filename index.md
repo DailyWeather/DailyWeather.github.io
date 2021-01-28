@@ -8,5 +8,5 @@
 <img src="imgs/launch.png"/>
 </div>
 
-<center>联系我们: dailyweather20@outlook.com</center>
+<center><h2>联系我们: dailyweather20@outlook.com</h2></center>
 
