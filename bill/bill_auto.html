@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html style="font-size: 60px;" lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <!-- 兼容模式方案：IE以最高级模式渲染文档；使用Chrome Frame渲染。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- H5页面窗口自动调整到设备宽度，并禁止用户缩放页面 -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" name="viewport">
+    <!-- 当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari (ios7.0版本以后，safari上已看不到效果) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 将网站添加到主屏幕快速启动方式，仅针对ios的safari顶端状态条的样式 (可选default、black、black-translucent) -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 忽略将页面中的数字识别为电话号码 -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- 关键词 -->
+    <meta name="keywords" content="自动记账">
+    <!-- 描述信息 -->
+    <meta name="description" content="自动记账">
+    <title>自动记账</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background: white;
+        }
+
+        p {
+            color: #333;
+            font-size: 0.28rem;
+            text-indent: 1.5em;
+            margin-bottom: 0.1rem;
+            text-align: justify;
+            line-height: 0.42rem;
+            word-break: break-all;
+        }
+
+        .no-indent {
+            text-indent: 0;
+        }
+
+        .align {
+            text-align: right;
+            font-size: 0.2rem;
+        }
+
+        .nor {
+            font-size: 0.28rem;
+        }
+
+        .title {
+            margin-bottom: 0;
+            font-size: 0.5rem;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .no-margin {
+            margin-bottom: 0;
+        }
+
+        .main {
+            padding: 0.3rem;
+            background: white;
+            width: 100%;
+            min-height: 100%;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: #687a9f;
+            text-decoration: none;
+        }
+
+        .questionTitle {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .questionValue {
+            font-size: 18px;
+            font-weight: normal;
+            color: #666666;
+        }
+    </style>
+
+</head>
+<body>
+<div class="main">
+    <div class="title">iOS自动记账</div>
+    <p></p>
+    <p>
+        iOS自动记账是基于快捷指令实现。需要安装洋葱自动记账指令，并完成相关设置后，在消费或历史账单详情页面进行识别后跳转到洋葱记账完成记账。</p>
+    <p><b>系统版本要求</b><br>
+        自动记账需要用到 iOS 15.0 及以上版本中的【提取文本】特性。如果你的手机系统版本低于 15.0，只要可以运行快捷指令，都可以自动记账。
+    </p>
+    <p><b>安装洋葱自动记账快捷指令</b><br>
+        打开自动记账开关，会弹窗提示安装快捷指令，点击安装会跳转快捷指令进行安装。如果已经安装过洋葱自动记账快捷指令，可以跳过。
+    </p>
+    <div style="text-align: center;"><img style="width: 30%;" src="./imgs/bill_auto_guide_1.PNG" alt=""/></div>
+    <div style="text-align: center;"><img style="width: 30%;" src="./imgs/bill_auto_guide_2.PNG" alt=""/></div>
+    <div style="text-align: center;"><img style="width: 30%;" src="./imgs/bill_auto_guide_3.png" alt=""/></div>
+    <p>
+        快捷指令加载有时会发生错误（如下图），可以试着点击中间的重试图标，再次尝试加载。因为这个是苹果系统的快捷指令加载问题，所以加载失败的情况，我们是无法直接处理的，只能尝试重新加载，等待苹果公司快捷指令恢复正常。</p>
+    <div style="text-align: center;"><img style="width: 30%;" src="./imgs/bill_auto_guide_4.png" alt=""/></div>
+
+    <p><b>洋葱自动记账快捷指令触控设置</b><br>
+        系统手机设置→辅助功能→触控→轻点背面→轻点两下→选择<span style="color: #ff7700">洋葱自动记账</span>
+    <div style="text-align: center;"><img style="width: 30%;" src="./imgs/bill_auto_guide_5.PNG" alt=""/></div>
+    <div style="text-align: center;"><img style="width: 30%;" src="./imgs/bill_auto_guide_6.PNG" alt=""/></div>
+
+
+    <p><b>开始使用</b><br>
+        对于页面中有数据的页面，可以自动识别数据，如果识别出来的数字不是预期的价格，还可以手动输入价格。快捷指令中的分类可以根据App中的设置自行编辑。<br/>
+        对于自动记账是否生效测试，你不必等到消费场景。你可以在安装完洋葱自动记账快捷指令，并完成敲击背面快捷设置后，进入如下页面进行测试
+    </p>
+    <div style="text-align: center;"><img style="width: 30%;" src="./imgs/bill_auto_guide_7.jpg" alt=""/></div>
+
+
+    <p><b>粘贴权限</b><br>
+        快捷指令处理的文本会先放到剪切板中，进入洋葱记账后，洋葱记账会读取剪切板中文本，所以洋葱记账需要有【从其他App粘贴】权限，默认为每次粘贴都会弹窗询问，可以进入<span
+                style="color: #ff7700">设置</span>修改为默认允许。(iOS16系统之后才需要，iOS15无需操作)<br/>
+        需要注意的是，【粘贴权限】只有在快捷指令粘贴弹窗之后才会出现。</p>
+</div>
+
+
+</body>
+</html>

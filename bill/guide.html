@@ -1,33 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>用户指南</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户指南</title>
     <style>
-        .container {
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
-            height: 100vh;
         }
 
         .menu {
             background-color: #f4f4f4;
             padding: 10px;
+            list-style-type: none;
         }
 
-        .menu a {
-            display: block;
+        .sidebar {
+            width: 20%;
+            background-color: #f4f4f4;
             padding: 10px;
-            color: #000;
-            text-decoration: none;
+            transition: width 0.3s ease;
+            overflow: hidden;
+            height: 100vh;
         }
 
-        .menu a:hover {
-            background-color: #ddd;
+        .sidebar.collapsed {
+            width: 50px;
+        }
+
+        .sidebar .menu li {
+            position: relative;
+        }
+
+        .sidebar .menu li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            color: #333333;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .sidebar .menu li a:hover {
+            background-color: #fafafa;
+        }
+
+        .sidebar .menu ul {
+            display: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            color: #333333;
+        }
+
+        .sidebar .menu li.active > ul {
+            display: block;
+        }
+
+        .sidebar .menu li ul li a {
+            padding-left: 20px;
+        }
+
+        .sidebar .menu li ul li ul li a {
+            padding-left: 40px;
+        }
+
+        .sidebar .menu li a .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar .menu li.active > a .arrow {
+            transform: rotate(90deg);
         }
 
         .content {
@@ -40,37 +88,84 @@
             height: 100%;
             border: none;
         }
+
+        .sidebar.collapsed + .content {
+            margin-left: 50px;
+        }
     </style>
 </head>
-
 <body>
 
-<div class="container">
-    <div class="menu" style="width: 20%;">
-        <b style="height: 40px;width: 100%; font-size: 120%;">相关协议</b>
-        <a href="#" onclick="loadPage('userAgreement.html')"
-           style="width: 100%; text-decoration: none; color: inherit;">用户协议</a>
-        <a href="#" onclick="loadPage('privacyPolicy.html')"
-           style="width: 100%; text-decoration: none; color: inherit;">隐私政策</a>
-        <a href="#" onclick="loadPage('childinfo.html')"
-           style="width: 100%; text-decoration: none; color: inherit;">儿童保护协议</a>
-        <a href="#" onclick="loadPage('vip.html')"
-           style="width: 100%; text-decoration: none; color: inherit;">VIP会员服务协议</a>
-        <a href="#" onclick="loadPage('subscribe.html')"
-           style="width: 100%; text-decoration: none; color: inherit;">自动续费协议</a>
 
-    </div>
-    <div class="content">
-        <iframe id="content-frame" src="index.html"></iframe>
-    </div>
+<div class="sidebar">
+    <ul class="menu">
+        <!--关于我们-->
+        <li><a href="#" onclick="loadContent('index.html')"
+               style="width: 100%; text-decoration: none; color: inherit;">关于我们</a></li>
+        <li><a href="#" onclick="loadContent('question.html')"
+               style="width: 100%; text-decoration: none; color: inherit;">常见问题</a></li>
+        <li>
+            <a href="javascript:void(0)" onclick="toggleSubmenu(this)" style="font-size: 110%; font-weight: bold;">
+                记账 <span class="arrow">&#10217;</span>
+            </a>
+            <ul>
+                <li><a href="#" onclick="loadContent('bill_normal.html')"
+                       style="width: 100%; text-decoration: none; color: inherit;">手动记账</a></li>
+                <li><a href="#" onclick="loadContent('bill_auto.html')"
+                       style="width: 100%; text-decoration: none; color: inherit;">iOS自动记账</a></li>
+
+            </ul>
+        </li>
+        <!--相关协议-->
+        <li>
+            <a href="javascript:void(0)" onclick="toggleSubmenu(this)" style="font-size: 110%; font-weight: bold;">
+                相关协议 <span class="arrow">&#10217;</span>
+            </a>
+            <ul>
+                <li><a href="#" onclick="loadContent('userAgreement.html')"
+                       style="width: 100%; text-decoration: none; color: inherit;">用户协议</a></li>
+                <li><a href="#" onclick="loadContent('privacyPolicy.html')"
+                       style="width: 100%; text-decoration: none; color: inherit;">隐私政策</a></li>
+                <li><a href="#" onclick="loadContent('childinfo.html')"
+                       style="width: 100%; text-decoration: none; color: inherit;">儿童保护协议</a></li>
+                <li><a href="#" onclick="loadContent('vip.html')"
+                       style="width: 100%; text-decoration: none; color: inherit;">VIP会员服务协议</a></li>
+                <li><a href="#" onclick="loadContent('subscribe.html')"
+                       style="width: 100%; text-decoration: none; color: inherit;">自动续费协议</a></li>
+            </ul>
+        </li>
+    </ul>
 </div>
 
+<div class="content">
+    <iframe id="content-frame" src="index.html"></iframe>
+</div>
+
+
 <script>
-    function loadPage(page) {
+    function toggleSubmenu(element) {
+        var li = element.parentElement;
+        var isActive = li.classList.contains('active');
+
+        // 关闭所有菜单
+        // var allMenus = document.querySelectorAll('.sidebar .menu li');
+        // allMenus.forEach(function (menu) {
+        //     menu.classList.remove('active');
+        // });
+
+        // 如果当前菜单没有激活，则激活它
+        if (!isActive) {
+            li.classList.add('active');
+        } else {
+            li.classList.remove('active');
+        }
+    }
+
+    function loadContent(page) {
         document.getElementById('content-frame').src = page;
     }
+
 </script>
 
 </body>
-
 </html>
